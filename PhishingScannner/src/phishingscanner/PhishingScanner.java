@@ -79,6 +79,7 @@ public class PhishingScanner {
                     count = i;
                 }
             }
+            br.close();
         } catch (Exception e) {
             System.out.println(e);
         }
