@@ -48,7 +48,7 @@ public class PhishingScanner {
         ArrayList<String> textFileWords = new ArrayList<String>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("phishingletter.txt"));            
+            BufferedReader br = new BufferedReader(new FileReader("PhishingTraining.txt"));            
             String str = "";
             String st;
             while ((st = br.readLine()) != null) {
