@@ -1,5 +1,5 @@
 package phishingscanner;
-import java.util.*;
+import java.util.Scanner;
 
 class DifferentFromAnswersException  extends Exception  
 {  
