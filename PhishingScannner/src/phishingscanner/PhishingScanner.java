@@ -18,7 +18,7 @@ public class PhishingScanner {
 
     private static final int phishingPoints[] = {100, 100, 100, 100, 100, 80, 80, 80, 80, 80, 60, 60, 60, 60, 60, 40, 40, 40, 40, 40, 20, 20, 20, 20, 20, 5, 5, 5, 5, 5};
 
-    public static void main(String[] args) {
+    public void run(){
         readFile();
     }
 
@@ -48,7 +48,7 @@ public class PhishingScanner {
         ArrayList<String> textFileWords = new ArrayList<String>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("PhishingTraining.txt"));            
+            BufferedReader br = new BufferedReader(new FileReader("Check.txt"));            
             String str = "";
             String st;
             while ((st = br.readLine()) != null) {
