@@ -1,11 +1,10 @@
 package phishingscanner;
-import java.util.Scanner;
+import java.util.*;
 
 class DifferentFromAnswersException  extends Exception  
 {  
     public DifferentFromAnswersException (String str)  
-    {  
-        // calling the constructor of parent Exception  
+    {
         super(str);  
     }  
 }  
