@@ -21,7 +21,7 @@ public class PhishingScanner {
         readFile();
     }
 
-    public static void wordTest(String[] testWords) {
+    public static void wordPrint(String[] testWords) {
         int total = 0;
 
         for (int j = 0; j < testWords.length; j++) {
@@ -47,7 +47,7 @@ public class PhishingScanner {
         ArrayList<String> textFileWords = new ArrayList<String>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Check.txt"));            
+            BufferedReader br = new BufferedReader(new FileReader("TrainingData.txt"));            
             String str = "";
             String st;
             while ((st = br.readLine()) != null) {
@@ -86,6 +86,6 @@ public class PhishingScanner {
         String[] testWords = new String[textFileWords.size()];
         testWords = textFileWords.toArray(testWords);
 
-        wordTest(testWords);
+        wordPrint(testWords);
     }
 }

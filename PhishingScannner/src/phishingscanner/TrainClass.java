@@ -4,34 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 public class TrainClass{
     List<String> words = new ArrayList<>();
-    public static <T> List<T> ArrayToListConversion(T array[])   
-    {   
-        //creating the constructor of the List class  
-        List<T> list = new ArrayList<>();   
-        //using for-each loop to iterate over the array  
-        for (T t : array)   
-        {   
-            //adding each element to the List  
-            list.add(t);   
-        }   
-        //returns the list converted into Array  
-    return list;   
-    }   
+    public static <T> List<T> ArrayToListConversion(T array[]){
+        List<T> list = new ArrayList<>();
+        for (T t : array){ 
+            list.add(t);
+        }
+    return list;
+    }
     public void addWords(String word){
-        String listToReplace[] = {"a", "an", "why", "where", "when", "hello", "dear", "mr", "ms", "mrs",
-        "i", "you", "are", "not", "now", "member", "members", "how", "us", " ", "in"};
+        String listToReplace[] = {"a ", "an ", "why ", "where ", "when ", "hello ", "dear ", "mr ", "ms ", "mrs ",
+        "i ", "you ", "are ", "not ", "now ", "member ", "members ", "how ", "us ", " ", "in ", "this ", "is ",
+        "our ", "me ", "we ", "want ", "to ", "all ", "of ", "and ", "your ", "has ", "been ", "also ", "at ",
+        "for ", "the ", "or ", "if ", "after ", "each ", "there ", "ready ", "go ", "back ", "have ", "from ",
+        "what ", "my ", "do ", "know ", "even ", "he ", "just ", "that ", "one ", "who ", "will ", "can ", "so ",
+        "aren't "};
         List<String> wordsToReplace = new ArrayList<>();
         wordsToReplace =  ArrayToListConversion(listToReplace);
-        if(wordsToReplace.contains(word)){
-            words.add("");
+        if(!wordsToReplace.contains(word)){
+            words.add(word);  
         }
-        else words.add(word);
+        for(int i = 0; i < words.size(); i++){
+            for(int j = 0; j < wordsToReplace.size(); j++){
+                if(words.get(i) == wordsToReplace.get(j)){
+                    words.remove(i);
+                }
+            }
+        }
     }
     public void start(){
         
         read();
 
         write();
+        System.out.println("Done Training now Checking.");
     }
     public void write(){
         String text = new String();

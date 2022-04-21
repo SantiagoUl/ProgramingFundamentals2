@@ -4,8 +4,7 @@ import java.util.Scanner;
 class DifferentFromAnswersException  extends Exception  
 {  
     public DifferentFromAnswersException (String str)  
-    {  
-        // calling the constructor of parent Exception  
+    {
         super(str);
     }  
 }  
@@ -21,7 +20,7 @@ public class Main{
         TrainClass train = new TrainClass();
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome");
-        System.out.println("Do you want to train the system or check if scam ?: \n 1.Train \n 2.Check");
+        System.out.println("Do you want to train the system or check if scam ?: \n 1.Train than Check \n 2.Check");
         int input = scan.nextInt();
         boolean loop = true;
         while(loop){
@@ -39,6 +38,7 @@ public class Main{
         switch (input) {
             case 1:
                 train.start();
+                phcheck.run();
                 break;
             case 2:
                 phcheck.run();
