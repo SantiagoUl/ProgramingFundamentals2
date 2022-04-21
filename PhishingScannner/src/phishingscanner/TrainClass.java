@@ -1,6 +1,7 @@
 package phishingscanner;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 public class TrainClass{
     List<String> words = new ArrayList<>();
@@ -38,11 +39,26 @@ public class TrainClass{
         write();
         System.out.println("Done Training now Checking.");
     }
-    public void write(){
+    public String format(List<String> list){
         String text = new String();
-        for(int i = 0 ; i < words.size(); i++){
-            text = text + words.get(i) + "\n";
+        HashMap<String, Integer> ScamWords = new HashMap<>();
+        for(int i = 0; i < list.size(); i++){
+            int counter = 1;
+            for(int j = list.size()-1; j >= 0; j--){
+                if(list.get(i).equals(list.get(j)) && i!=j){
+                    counter++;
+                }
+            }
+            ScamWords.put(list.get(i), counter);
         }
+        for (String i : ScamWords.keySet()) {
+            text = text + i + " " + ScamWords.get(i) + "\n";
+          }
+        return text;
+    }
+
+    public void write(){
+        String text = format(words);
         BufferedWriter writer;
         try {
             writer = new BufferedWriter(new FileWriter("TrainingData.txt"));
