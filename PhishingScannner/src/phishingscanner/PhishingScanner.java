@@ -14,7 +14,8 @@ public class PhishingScanner {
         "confirm", "account", "bill", "verification", "address", "telephone",
         "ssn", "charity", "check", "secure", "personal", "confidential",
         "atm", "warning", "amazon", "citibank", "irs", "paypal"};
-
+    
+  
     private static final int phishingPoints[] = {100, 100, 100, 100, 100, 80, 80, 80, 80, 80, 60, 60, 60, 60, 60, 40, 40, 40, 40, 40, 20, 20, 20, 20, 20, 5, 5, 5, 5, 5};
 
     public void run(){
@@ -54,8 +55,9 @@ public class PhishingScanner {
                 str += st + " ";
             }
             HashMap<String, Integer> map = new HashMap<String, Integer>();
-
-            str = str.toLowerCase();
+            
+            //Reads and converts the file into a single lowercase string
+            str = str.toLowerCase(); 
 
             int count = -1;
             for (int i = 0; i < str.length(); i++) {
@@ -73,7 +75,7 @@ public class PhishingScanner {
                         }
                         textFileWords.add(word);
 
-                        //^^ Reads each word and puts it into the textFileWords Array List
+                        //Reads each word and puts it into the textFileWords ArrayList
                     }
                     count = i;
                 }
