@@ -26,11 +26,14 @@ Done by Santjago Ulndreaj and Franci Sima
 
 
 
-| Files    | Content   | Description |
-| ---      | ---       | ---         |
-| Backtick | `         |             |
-| Backtick | `         |             |
-| Backtick | `         |             |
-| Backtick | `         |             |
-| Backtick | `         |             |
+| Files       | Content           | Description |
+| ---         | ---               | ---         |
+| Java Files  | `                 |             |
+| .           | Main              | Main class from where it starts and where the user can choose whether to train / check or just check for phishing.           |
+| .           | PhishinScanner    | Check if emails contain elements or keywords that are considered phishing.            |
+| .           | TrainClass        | It is the class that takes data from the sample file and trains the system depending on the data  |
+| Text Files  | `                 |             |
+| .           | Check             | Mail/Message to be checked            |
+| .           | PhishingTraining  | Sample scam mails to train system          |
+| .           | TrainingData      | Train Data to be used to analise the email that is being checked          |
 
