@@ -52,7 +52,7 @@ public class TrainClass{
             ScamWords.put(list.get(i), counter);
         }
         for (String i : ScamWords.keySet()) {
-            text = text + i + " " + ScamWords.get(i) + "\n";
+            text = text + i + "" + ScamWords.get(i) + "\n";
           }
         return text;
     }
