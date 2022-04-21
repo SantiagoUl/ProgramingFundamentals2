@@ -1,11 +1,12 @@
 package phishingscanner;
-import java.util.*;
+import java.util.Scanner;
 
 class DifferentFromAnswersException  extends Exception  
 {  
     public DifferentFromAnswersException (String str)  
-    {
-        super(str);  
+    {  
+        // calling the constructor of parent Exception  
+        super(str);
     }  
 }  
 
@@ -37,7 +38,7 @@ public class Main{
         }
         switch (input) {
             case 1:
-                train.test();
+                train.start();
                 break;
             case 2:
                 phcheck.run();
