@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 public class TrainClass{
-    List<String> words = new ArrayList<>();
+    List<String> words = new ArrayList<>(); //List of words that are used from the emails
+
+    //This method turns an array to a list and is a generic methods
     public static <T> List<T> ArrayToListConversion(T array[]){
         List<T> list = new ArrayList<>();
         for (T t : array){ 
@@ -12,7 +14,11 @@ public class TrainClass{
         }
     return list;
     }
+
+    //This method adds the words from the sample file to the list of words
     public void addWords(String word){
+
+        //This is a list of words that are common and we are not interested
         String listToReplace[] = {"a ", "an ", "why ", "where ", "when ", "hello ", "dear ", "mr ", "ms ", "mrs ",
         "i ", "you ", "are ", "not ", "now ", "member ", "members ", "how ", "us ", " ", "in ", "this ", "is ",
         "our ", "me ", "we ", "want ", "to ", "all ", "of ", "and ", "your ", "has ", "been ", "also ", "at ",
@@ -32,6 +38,9 @@ public class TrainClass{
             }
         }
     }
+
+
+    //this method is the method that runs the training
     public void start(){
         
         read();
@@ -39,6 +48,8 @@ public class TrainClass{
         write();
         System.out.println("Done Training now Checking.");
     }
+
+    //This method formats how the training data is writen in the file
     public String format(List<String> list){
         String text = new String();
         HashMap<String, Integer> ScamWords = new HashMap<>();
@@ -57,6 +68,8 @@ public class TrainClass{
         return text;
     }
 
+
+    //This method is used to write the train data in the train data file
     public void write(){
         String text = format(words);
         BufferedWriter writer;
@@ -69,6 +82,9 @@ public class TrainClass{
             e.printStackTrace();
         }
     }
+
+
+    //This method reads the sample emails to train the system
     public void read(){
         try {
             BufferedReader br = new BufferedReader(new FileReader("PhishingTraining.txt"));

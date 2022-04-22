@@ -6,11 +6,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+//This is the class that does the scam check
 public class PhishingScanner {
     public static int[] phishingWordsCount;
     public static String[] phishingWords;
     public static int[] phishingPoints;
 
+
+    //This method reads the training data and adds the data to the corresponding array
     public void initialize(){
         ArrayList<String> textFileWords = new ArrayList<String>();
         BufferedReader training;
@@ -28,11 +32,13 @@ public class PhishingScanner {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        //This initializes the arrays to make them static
         phishingWords = new String[str.length()];
         phishingPoints = new int[str.length()];
         phishingWordsCount = new int[str.length()];
         HashMap<String, Integer> map = new HashMap<String, Integer>();
         int count = -1;
+        //This loop is used to get words only
         for (int i = 0; i < str.length(); i++) {
             if ((!Character.isLetter(str.charAt(i))) || (i + 1 == str.length())) {
                 if (i - count > 1) {
@@ -51,15 +57,17 @@ public class PhishingScanner {
                 count = i;
             }
         }
-
         String[] testWords = new String[textFileWords.size()];
         phishingWords = textFileWords.toArray(testWords);
+
+        //This is used to get digits only
         str = str.replaceAll("\\D+","");
         String regx = "089";
             char[] ca = regx.toCharArray();
             for (char c : ca) {
                 str = str.replace(""+c, "");
             }
+        //This provides the grade of the words
         for(int i = 0; i < str.length(); i++){
             char character = str.charAt(i);
             int value = Character.getNumericValue(character);
@@ -75,11 +83,15 @@ public class PhishingScanner {
         }
     }
 
+
+    //This method runs the Class
     public void run(){
         initialize();
         readFile();
     }
 
+
+    //This method is to print the data
     public static void wordPrint(String[] testWords) {
         int total = 0;
 
@@ -113,6 +125,9 @@ public class PhishingScanner {
         }
     }
 
+
+
+    //This method is used to read the email that needs to be checked
     private static void readFile() {
         ArrayList<String> textFileWords = new ArrayList<String>();
 
